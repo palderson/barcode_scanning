@@ -5,8 +5,7 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight,
-  ListView
+  TouchableHighlight
 } from 'react-native';
 
 class ScannerResult extends Component {
@@ -32,6 +31,7 @@ class ScannerResult extends Component {
       })
       .done();
   }
+
   render() {
     if (!this.state.items) {
       return this.renderLoadingView();

@@ -5,32 +5,80 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  ListView
 } from 'react-native';
 
 class ScannerResult extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: null,
+    }
+  }
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    var url = `https://api.upcitemdb.com/prod/trial/lookup?upc=${this.props.data}`;
+    fetch(url)
+      .then((response) => response.json())
+      .then((responseData) => {
+        this.setState({
+          items: responseData.items,
+        });
+      })
+      .done();
+  }
   render() {
+    if (!this.state.items) {
+      return this.renderLoadingView();
+    }
+
+    var product = this.state.items[0];
+    return this.renderProduct(product);
+  }
+
+  renderLoadingView() {
     return (
       <View style={styles.container}>
-        <Text style={styles.data}>{this.props.data}</Text>
+        <Text>
+          Finding product...
+        </Text>
       </View>
     );
   }
 
-  componentWillUnmount() {
-    this.props.returnHandler()
+  renderProduct(item) {
+    return (
+      <View style={styles.container}>
+        <View style={styles.rightContainer}>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.year}>{item.description}</Text>
+        </View>
+      </View>
+    );
   }
 }
 
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 65,
-    justifyContent: 'flex-start',
-    backgroundColor: 'transparent',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
-  data: {
+  thumbnail: {
+    width: 53,
+    height: 81,
+  },
+  title: {
     fontSize: 20,
+    marginBottom: 8,
+    textAlign: 'center',
   }
 });
 

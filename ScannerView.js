@@ -16,7 +16,7 @@ class ScannerView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scanned: false
+      scanned: false,
     };
   }
   render() {

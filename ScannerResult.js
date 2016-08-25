@@ -5,7 +5,9 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  Image,
+  ListView
 } from 'react-native';
 
 class ScannerResult extends Component {
@@ -13,6 +15,8 @@ class ScannerResult extends Component {
     super(props);
     this.state = {
       items: null,
+      dataSource: new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2}),
+      loaded: false
     }
   }
 
@@ -27,6 +31,8 @@ class ScannerResult extends Component {
       .then((responseData) => {
         this.setState({
           items: responseData.items,
+          dataSource: this.state.dataSource.cloneWithRows(responseData.items),
+          loaded: true
         });
       })
       .done();
@@ -37,8 +43,8 @@ class ScannerResult extends Component {
       return this.renderLoadingView();
     }
 
-    var product = this.state.items[0];
-    return this.renderProduct(product);
+    var item = this.state.items[0];
+    return this.renderProduct(item);
   }
 
   renderLoadingView() {
@@ -54,10 +60,21 @@ class ScannerResult extends Component {
   renderProduct(item) {
     return (
       <View style={styles.container}>
-        <View style={styles.rightContainer}>
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.year}>{item.description}</Text>
-        </View>
+        <Text style={styles.text}>{item.title}</Text>
+        <Text style={styles.text}>{item.description}</Text>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={this.renderData.bind(this)}
+        />
+      </View>
+    );
+  }
+
+  renderData(data) {
+    return (
+      <View style={styles.container}>
+          <Text style={styles.text}>{data.offers[0].merchant}</Text>
+          <Text style={styles.text}>{data.offers[0].link}</Text>
       </View>
     );
   }
@@ -66,19 +83,16 @@ class ScannerResult extends Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    alignItems: 'center'
   },
-  thumbnail: {
-    width: 53,
-    height: 81,
-  },
-  title: {
+  text: {
     fontSize: 20,
     marginBottom: 8,
     textAlign: 'center',
+  },
+  image: {
+    height: 350,
   }
 });
 

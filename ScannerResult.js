@@ -25,13 +25,13 @@ class ScannerResult extends Component {
   }
 
   fetchData() {
-    var url = `https://api.upcitemdb.com/prod/trial/lookup?upc=${this.props.data}`;
+    var url = `https://api.upcitemdb.com/prod/trial/lookup?upc=888462367967`; // Change to ${this.props.data}
     fetch(url)
       .then((response) => response.json())
       .then((responseData) => {
         this.setState({
           items: responseData.items,
-          dataSource: this.state.dataSource.cloneWithRows(responseData.items),
+          dataSource: this.state.dataSource.cloneWithRows(responseData.items[0].offers),
           loaded: true
         });
       })
@@ -73,8 +73,8 @@ class ScannerResult extends Component {
   renderData(data) {
     return (
       <View style={styles.container}>
-          <Text style={styles.text}>{data.offers[0].merchant}</Text>
-          <Text style={styles.text}>{data.offers[0].link}</Text>
+          <Text style={styles.text}>{data.merchant}</Text>
+          <Text style={styles.text}>{data.link}</Text>
       </View>
     );
   }

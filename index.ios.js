@@ -13,7 +13,7 @@ import {
   NavigatorIOS
 } from 'react-native';
 
-import ScannerView from './ScannerView';
+import ScannerResult from './ScannerResult'; // Change to ScannerView
 
 class barcode_read extends Component {
   render() {
@@ -22,7 +22,7 @@ class barcode_read extends Component {
         style={styles.container}
         initialRoute={{
           title: 'Scan Barcode',
-          component: ScannerView,
+          component: ScannerResult, // ScannerView for camera
         }}/>
 
     );

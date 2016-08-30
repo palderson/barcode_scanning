@@ -14,7 +14,7 @@ class ScannerResult extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: null,
+      items: [],
       dataSource: new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2}),
       loaded: false
     }
@@ -30,7 +30,7 @@ class ScannerResult extends Component {
       .then((response) => response.json())
       .then((responseData) => {
         this.setState({
-          items: responseData.items,
+          items: responseData.items[0],
           dataSource: this.state.dataSource.cloneWithRows(responseData.items[0].offers),
           loaded: true
         });
@@ -40,14 +40,11 @@ class ScannerResult extends Component {
 
   render() {
     if (!this.state.items) {
-      return this.renderLoadingView();
+      return this._renderLoadingView();
     }
-
-    var item = this.state.items[0];
-    return this.renderProduct(item);
   }
 
-  renderLoadingView() {
+  _renderLoadingView() {
     return (
       <View style={styles.container}>
         <Text>
@@ -57,20 +54,27 @@ class ScannerResult extends Component {
     );
   }
 
-  renderProduct(item) {
+  render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>{item.title}</Text>
-        <Text style={styles.text}>{item.description}</Text>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={this.renderData.bind(this)}
+          renderRow={this._renderRow.bind(this)}
+          renderHeader={this._renderHeader.bind(this)}
         />
       </View>
     );
   }
 
-  renderData(data) {
+  _renderHeader() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>{this.state.items.description}</Text>
+      </View>
+    )
+  }
+
+  _renderRow(data) {
     return (
       <View style={styles.container}>
           <Text style={styles.text}>{data.merchant}</Text>
@@ -82,17 +86,17 @@ class ScannerResult extends Component {
 
 var styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+      flex: 1,
+      flexDirection: 'column',
+      padding: 15
+  },
+  listViewContainer: {
+      flex: 1,
+      flexDirection: 'column',
   },
   text: {
     fontSize: 20,
-    marginBottom: 8,
     textAlign: 'center',
-  },
-  image: {
-    height: 350,
   }
 });
 

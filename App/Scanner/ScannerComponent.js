@@ -9,7 +9,7 @@ import {
 
 import Camera from 'react-native-camera';
 
-class Scanner extends Component {
+class ScannerComponent extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -41,4 +41,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = Scanner;
+module.exports = ScannerComponent;

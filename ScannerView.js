@@ -5,7 +5,8 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  NavigatorIOS
 } from 'react-native';
 
 import Camera from 'react-native-camera';

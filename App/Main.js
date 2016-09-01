@@ -4,6 +4,8 @@
  * @flow
  */
 
+ 'use strict';
+
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -15,9 +17,9 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-import Scanner from './Scanner/Scanner';
-import Products from './Products/Products';
+import Scanner from './Scanner';
+import Products from './Products';
+import Product from './Product';
 
 class Main extends Component {
   constructor(props) {
@@ -69,37 +71,40 @@ class Main extends Component {
   renderCameraView() {
    return (
      <NavigatorIOS
-       style={styles.container}
-       tintColor='#D6573D'
-       barTintColor='#FFFFFD'
-       titleTextColor='#D6573D'
-       ref='cameraRef'
-       initialRoute={{
-         title: 'Scan Barcode',
-         component: Scanner
-       }} />
+        style={styles.wrapper}
+        tintColor='#DA552F'
+        barTintColor='#FFFFFD'
+        titleTextColor='#DA552F'
+        ref='cameraRef'
+        initialRoute={{
+          title: 'Scan Barcode',
+          component: Scanner,
+        }}
+      />
     )
  }
 
  renderProductsView() {
    return (
      <NavigatorIOS
-       style={styles.container}
+       style={styles.wrapper}
        tintColor='#D6573D'
        barTintColor='#FFFFFD'
        titleTextColor='#D6573D'
        ref='productsRef'
        initialRoute={{
          title: 'My Products',
-         component: Products
-       }} />
+         component: Products,
+       }}
+      />
     )
   }
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
+  wrapper: {
+    flex: 1,
+    backgroundColor: '#F5FCFF',
   },
   text: {
     color: 'black',

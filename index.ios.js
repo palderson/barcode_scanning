@@ -4,6 +4,8 @@
  * @flow
  */
 
+ 'use strict';
+
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -13,8 +15,8 @@ import {
   Navigator
 } from 'react-native';
 
-import Main from './App/Main'; // Change to ScannerView
-import Products from './App/Products/Products'; // Change to ScannerView
+import Main from './App/Main';
+import Products from './App/Products';
 
 class barcode_read extends Component {
   renderScene(route, navigator) {
@@ -32,7 +34,7 @@ class barcode_read extends Component {
   render() {
     return (
       <Navigator
-        sceneStyle={styles.container}
+        style={styles.wrapper}
         ref={(navigator) => { this.navigator = navigator; }}
         renderScene={this.renderScene}
         tintColor='#D6573D'
@@ -40,9 +42,10 @@ class barcode_read extends Component {
         titleTextColor='#D6573D'
         navigationBarHidden={true}
         initialRoute={{
-          title: 'Product Kitty',
+          title: '',
           component: Main,
-        }} />
+        }}
+      />
     );
   }
 };
@@ -54,9 +57,14 @@ const styles = StyleSheet.create({
     fontSize: 30,
     margin: 80
   },
+  wrapper: {
+    flex: 1
+  },
   container: {
     flex: 1
   }
 });
 
 AppRegistry.registerComponent('barcode_read', () => barcode_read);
+
+module.exports = 'barcode_read';

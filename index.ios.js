@@ -10,21 +10,47 @@ import {
   StyleSheet,
   Text,
   View,
-  NavigatorIOS
+  NavigatorIOS,
+  TabBarIOS
 } from 'react-native';
 
-import ScannerResult from './ScannerResult'; // Change to ScannerView
+import Main from './App/Main'; // Change to ScannerView
+import Products from './App/Products/Products'; // Change to ScannerView
 
 class barcode_read extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedTab: 'camera',
+    }
+  }
+
   render() {
     return (
-       <NavigatorIOS
-        style={styles.container}
-        initialRoute={{
-          title: 'Scan Barcode',
-          component: ScannerResult, // ScannerView for camera
-        }}/>
-
+      <TabBarIOS>
+        <TabBarIOS.Item
+          name="Camera"
+          title="Camera"
+          selected={this.state.selectedTab === 'camera'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'camera',
+            });
+          }}>
+          <Main/>
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          name="Products"
+          title="Product"
+          selected={this.state.selectedTab === 'products'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'products',
+            });
+          }}>
+          <Products/>
+        </TabBarIOS.Item>
+      </TabBarIOS>
     );
   }
 }

@@ -10,50 +10,42 @@ import {
   StyleSheet,
   Text,
   View,
-  NavigatorIOS,
-  TabBarIOS
+  Navigator
 } from 'react-native';
 
 import Main from './App/Main'; // Change to ScannerView
 import Products from './App/Products/Products'; // Change to ScannerView
 
 class barcode_read extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      selectedTab: 'camera',
-    }
+  renderScene(route, navigator) {
+    var Component = route.component;
+    return (
+      <View style={styles.container}>
+        <Component
+          route={route}
+          navigator={navigator}
+          topNavigator={navigator} />
+      </View>
+      )
   }
 
   render() {
     return (
-      <TabBarIOS>
-        <TabBarIOS.Item
-          name="Camera"
-          title="Camera"
-          selected={this.state.selectedTab === 'camera'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'camera',
-            });
-          }}>
-          <Main/>
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          name="Products"
-          title="Product"
-          selected={this.state.selectedTab === 'products'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'products',
-            });
-          }}>
-          <Products/>
-        </TabBarIOS.Item>
-      </TabBarIOS>
+      <Navigator
+        sceneStyle={styles.container}
+        ref={(navigator) => { this.navigator = navigator; }}
+        renderScene={this.renderScene}
+        tintColor='#D6573D'
+        barTintColor='#FFFFFD'
+        titleTextColor='#D6573D'
+        navigationBarHidden={true}
+        initialRoute={{
+          title: 'Product Kitty',
+          component: Main,
+        }} />
     );
   }
-}
+};
 
 const styles = StyleSheet.create({
   text: {

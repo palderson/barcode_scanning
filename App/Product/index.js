@@ -18,7 +18,8 @@ class Product extends Component {
     this.state = {
       items: [],
       dataSource: new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2}),
-      loaded: false
+      loaded: false,
+      numberOfLines: 5
     }
   }
 
@@ -74,11 +75,15 @@ class Product extends Component {
   }
 
   _renderHeader() {
+    var showMore = this.state.numberOfLines ? <Text style={{color: '#f00'}}>{'SHOW MORE \u25BC'}</Text> : null;
     return (
-        <View style={styles.container}>
+      <View style={styles.container}>
         <Text style={styles.heading}>{this.state.items.title}</Text>
-          <Text style={styles.subHeading}>{this.state.items.description}</Text>
+        <View style={styles.recommendedPriceBox}>
+          <Text style={styles.priceIntroText}>PURCHASE IN STORE{"\n"}IF PRICED BELOW</Text>
+          <Text style={styles.recommendedPrice}>$499</Text>
         </View>
+      </View>
     )
   }
 
@@ -91,7 +96,7 @@ class Product extends Component {
             <Text style={styles.domain}>{data.domain}</Text>
           </View>
           <View style={styles.priceContainer}>
-            <Text style={styles.price}>${data.price}</Text>
+            <Text style={styles.price}>${Math.trunc(data.price)}</Text>
           </View>
         </View>
       </View>

@@ -34,13 +34,24 @@ var styles = StyleSheet.create({
     marginTop: 50,
     marginBottom: 50
   },
-  subHeading: {
-    fontSize: 16,
-    color: 'grey',
-    textAlign: 'center',
-    padding: 15,
-    marginTop: 20,
+  recommendedPriceBox: {
+    backgroundColor:'#81c04d',
+    paddingTop:50,
+    paddingBottom:50,
+    flexDirection:'column',
     marginBottom: 50
+  },
+  priceIntroText: {
+    fontSize: 16,
+    color: '#f0f0f0',
+    textAlign: 'center',
+    marginBottom: 20
+  },
+  recommendedPrice: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    textAlign: 'center',
   },
   storeCard: {
     backgroundColor: 'white',

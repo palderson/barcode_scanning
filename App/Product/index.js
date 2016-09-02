@@ -12,9 +12,6 @@ import {
 
 import styles from './styles';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
-const myIcon = (<Icon name="angle-right" size={30} color="#900" />)
-
 class Product extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +27,7 @@ class Product extends Component {
   }
 
   fetchData() {
-    var url = `https://api.upcitemdb.com/prod/trial/lookup?upc=885909575145`; // Change to ${this.props.data}
+    var url = `https://s3-us-west-2.amazonaws.com/barcode-scan-frame/file.json`; // https://api.upcitemdb.com/prod/trial/lookup?upc=${this.props.data}
     fetch(url)
       .then((response) => response.json())
       .then((responseData) => {
@@ -95,9 +92,6 @@ class Product extends Component {
           </View>
           <View style={styles.priceContainer}>
             <Text style={styles.price}>${data.price}</Text>
-          </View>
-          <View style={styles.priceContainer}>
-            <Icon name="angle-right" size={20} color="grey" />
           </View>
         </View>
       </View>

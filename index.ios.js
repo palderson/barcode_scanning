@@ -17,6 +17,7 @@ import {
 
 import Main from './App/Main';
 import Products from './App/Products';
+import Product from './App/Product'; // Remove if on Device
 
 class barcode_read extends Component {
   renderScene(route, navigator) {
@@ -43,7 +44,7 @@ class barcode_read extends Component {
         navigationBarHidden={true}
         initialRoute={{
           title: '',
-          component: Main, // Main for device Product to style in sim
+          component: Product, // Main for device Product to style in sim
         }}
       />
     );

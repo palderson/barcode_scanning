@@ -55,14 +55,19 @@ class Product extends Component {
       </View>
     );
   }
-
+  // Remove toolbar and toolbarTitle when not using camera
   render() {
     return (
-      <View style={styles.container}>
+
+      <View style={styles.mainContainer}>
+        <View style={styles.toolbar}>
+          <Text style={styles.toolbarTitle}>This is the title</Text>
+        </View>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this._renderRow.bind(this)}
           renderHeader={this._renderHeader.bind(this)}
+          style={styles.content}
         />
       </View>
     );
@@ -70,9 +75,10 @@ class Product extends Component {
 
   _renderHeader() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.heading}>{this.state.items.description}</Text>
-      </View>
+        <View style={styles.container}>
+        <Text style={styles.heading}>{this.state.items.title}</Text>
+          <Text style={styles.subHeading}>{this.state.items.description}</Text>
+        </View>
     )
   }
 

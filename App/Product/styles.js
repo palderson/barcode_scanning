@@ -12,7 +12,7 @@ var styles = StyleSheet.create({
     flex:1
   },
   content:{
-    backgroundColor: 'white',
+    backgroundColor: '#f0f0f0',
     flex: 1,
     padding: 10
   },
@@ -31,16 +31,32 @@ var styles = StyleSheet.create({
   heading: {
     fontSize: 20,
     textAlign: 'center',
-    paddingTop: 50,
-    paddingBottom: 50
+    marginTop: 50,
+    marginBottom: 50
   },
   subHeading: {
     fontSize: 16,
     color: 'grey',
     textAlign: 'center',
     padding: 15,
+    marginTop: 20,
+    marginBottom: 50
+  },
+  storeCard: {
+    backgroundColor: 'white',
+    borderRadius: 0.25,
+    flexDirection: 'column',
     paddingTop: 20,
-    paddingBottom: 50
+    marginBottom: 10
+  },
+  storeCardContent: {
+
+  },
+  merchant: {
+
+  },
+  price: {
+
   },
   text: {
     fontSize: 20,

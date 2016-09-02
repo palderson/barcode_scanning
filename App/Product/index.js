@@ -84,9 +84,11 @@ class Product extends Component {
 
   _renderRow(data) {
     return (
-      <View style={styles.container}>
-          <Text style={styles.text}>{data.merchant}</Text>
-          <Text style={styles.text}>{data.link}</Text>
+      <View style={styles.storeCard}>
+        <View style={styles.storeCardContent}>
+          <Text style={styles.merchant}>{data.merchant}</Text>
+          <Text style={styles.price}>${data.price}</Text>
+        </View>
       </View>
     );
   }

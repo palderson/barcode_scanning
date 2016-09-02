@@ -10,6 +10,7 @@ import {
   ListView
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 
 class Product extends Component {
@@ -78,11 +79,14 @@ class Product extends Component {
     var showMore = this.state.numberOfLines ? <Text style={{color: '#f00'}}>{'SHOW MORE \u25BC'}</Text> : null;
     return (
       <View style={styles.container}>
-        <Text style={styles.heading}>{this.state.items.title}</Text>
+        <View style={styles.headingContainer}>
+          <Text style={styles.heading}>{this.state.items.title}</Text>
+        </View>
         <View style={styles.recommendedPriceBox}>
           <Text style={styles.priceIntroText}>PURCHASE IN STORE{"\n"}IF PRICED BELOW</Text>
           <Text style={styles.recommendedPrice}>$499</Text>
         </View>
+        <Text style={styles.onlineStorePriceHeading}>Online store prices</Text>
       </View>
     )
   }
@@ -96,7 +100,14 @@ class Product extends Component {
             <Text style={styles.domain}>{data.domain}</Text>
           </View>
           <View style={styles.priceContainer}>
-            <Text style={styles.price}>${Math.trunc(data.price)}</Text>
+            <View style={styles.priceArrow}>
+              <Text style={styles.price}>${Math.trunc(data.price)}   </Text>
+              <Icon
+                name="angle-right"
+                size={25}
+                color="grey"
+              />
+            </View>
           </View>
         </View>
       </View>

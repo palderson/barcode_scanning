@@ -28,18 +28,22 @@ var styles = StyleSheet.create({
     fontWeight:'bold',
     flex:1
   },
+  headingContainer: {
+
+  },
   heading: {
     fontSize: 20,
     textAlign: 'center',
     marginTop: 50,
-    marginBottom: 50
+    marginBottom: 50,
+    padding: 20
   },
   recommendedPriceBox: {
     backgroundColor:'#81c04d',
     paddingTop:50,
     paddingBottom:50,
     flexDirection:'column',
-    marginBottom: 50
+    marginBottom: 30
   },
   priceIntroText: {
     fontSize: 16,
@@ -52,6 +56,12 @@ var styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#ffffff',
     textAlign: 'center',
+  },
+  onlineStorePriceHeading: {
+    fontSize: 16,
+    color: 'grey',
+    textAlign: 'center',
+    marginBottom: 30
   },
   storeCard: {
     backgroundColor: 'white',
@@ -79,6 +89,11 @@ var styles = StyleSheet.create({
   },
   priceContainer: {
     flexDirection: 'column',
+    alignItems: 'flex-end',
+    justifyContent: 'center'
+  },
+  priceArrow: {
+    flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'center'
   },

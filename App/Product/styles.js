@@ -46,17 +46,34 @@ var styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 0.25,
     flexDirection: 'column',
-    paddingTop: 20,
     marginBottom: 10
   },
   storeCardContent: {
-
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 20,
+    paddingTop: 20,
+    paddingBottom: 20
+  },
+  merchantDomain: {
+    flexDirection: 'column',
   },
   merchant: {
-
+    marginBottom: 20,
+    fontSize: 16,
+    fontWeight: 'bold'
+  },
+  domain: {
+    color: 'grey'
+  },
+  priceContainer: {
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    justifyContent: 'center'
   },
   price: {
-
+    fontSize: 20,
+    fontWeight: 'bold'
   },
   text: {
     fontSize: 20,

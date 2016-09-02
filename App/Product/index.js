@@ -12,6 +12,9 @@ import {
 
 import styles from './styles';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
+const myIcon = (<Icon name="angle-right" size={30} color="#900" />)
+
 class Product extends Component {
   constructor(props) {
     super(props);
@@ -86,8 +89,16 @@ class Product extends Component {
     return (
       <View style={styles.storeCard}>
         <View style={styles.storeCardContent}>
-          <Text style={styles.merchant}>{data.merchant}</Text>
-          <Text style={styles.price}>${data.price}</Text>
+          <View style={styles.merchantDomain}>
+            <Text style={styles.merchant}>{data.merchant.toUpperCase()}</Text>
+            <Text style={styles.domain}>{data.domain}</Text>
+          </View>
+          <View style={styles.priceContainer}>
+            <Text style={styles.price}>${data.price}</Text>
+          </View>
+          <View style={styles.priceContainer}>
+            <Icon name="angle-right" size={20} color="grey" />
+          </View>
         </View>
       </View>
     );

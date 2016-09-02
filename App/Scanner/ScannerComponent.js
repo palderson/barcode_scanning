@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import Camera from 'react-native-camera';
+import styles from './styles';
 
 class ScannerComponent extends Component {
   render() {
@@ -27,18 +28,5 @@ class ScannerComponent extends Component {
     this.props.resultHandler(e)
   }
 }
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'transparent',
-  },
-  camera: {
-    height: 250,
-    width: 250
-  }
-});
 
 module.exports = ScannerComponent;

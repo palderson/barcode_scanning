@@ -10,6 +10,8 @@ import {
   ListView
 } from 'react-native';
 
+import styles from './styles';
+
 class Product extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +27,7 @@ class Product extends Component {
   }
 
   fetchData() {
-    var url = `https://api.upcitemdb.com/prod/trial/lookup?upc=${this.props.data}`; // Change to ${this.props.data}
+    var url = `https://api.upcitemdb.com/prod/trial/lookup?upc=885909575145`; // Change to ${this.props.data}
     fetch(url)
       .then((response) => response.json())
       .then((responseData) => {
@@ -69,7 +71,7 @@ class Product extends Component {
   _renderHeader() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>{this.state.items.description}</Text>
+        <Text style={styles.heading}>{this.state.items.description}</Text>
       </View>
     )
   }
@@ -87,21 +89,5 @@ class Product extends Component {
     this.props.returnHandler()
   }
 }
-
-var styles = StyleSheet.create({
-  container: {
-      flex: 1,
-      flexDirection: 'column',
-      padding: 15
-  },
-  listViewContainer: {
-      flex: 1,
-      flexDirection: 'column',
-  },
-  text: {
-    fontSize: 20,
-    textAlign: 'center',
-  }
-});
 
 module.exports = Product;

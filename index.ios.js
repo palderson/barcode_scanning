@@ -43,7 +43,7 @@ class barcode_read extends Component {
         navigationBarHidden={true}
         initialRoute={{
           title: '',
-          component: Main,
+          component: Main, // Main for device Product to style in sim
         }}
       />
     );

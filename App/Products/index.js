@@ -13,6 +13,8 @@ import {
   NavigatorIOS
 } from 'react-native';
 
+import styles from './styles';
+
 class Products extends Component {
   render(){
     return (
@@ -22,17 +24,5 @@ class Products extends Component {
     )
   }
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  text: {
-    color: 'black',
-    backgroundColor: 'white',
-    fontSize: 30,
-    margin: 80
-  }
-});
 
 module.exports = Products;

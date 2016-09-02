@@ -17,6 +17,7 @@ import {
 import Main from '../Main'
 import ScannerComponent from './ScannerComponent';
 import Product from '../Product';
+import styles from './styles';
 
 class Scanner extends Component {
   constructor(props) {
@@ -45,17 +46,5 @@ class Scanner extends Component {
     this.state.scanned = false
   }
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  text: {
-    color: 'black',
-    backgroundColor: 'white',
-    fontSize: 30,
-    margin: 80
-  }
-});
 
 module.exports = Scanner;

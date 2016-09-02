@@ -36,7 +36,8 @@ var styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 50,
     marginBottom: 50,
-    padding: 20
+    padding: 20,
+    fontFamily: 'AppleSDGothicNeo-Light'
   },
   recommendedPriceBox: {
     backgroundColor:'#81c04d',
@@ -49,19 +50,22 @@ var styles = StyleSheet.create({
     fontSize: 16,
     color: '#f0f0f0',
     textAlign: 'center',
-    marginBottom: 20
+    marginBottom: 20,
+    fontFamily: 'AppleSDGothicNeo-Light'
   },
   recommendedPrice: {
     fontSize: 40,
     fontWeight: 'bold',
     color: '#ffffff',
     textAlign: 'center',
+    fontFamily: 'AppleSDGothicNeo-Semibold'
   },
   onlineStorePriceHeading: {
     fontSize: 16,
     color: 'grey',
     textAlign: 'center',
-    marginBottom: 30
+    marginBottom: 30,
+    fontFamily: 'AppleSDGothicNeo-Light'
   },
   storeCard: {
     backgroundColor: 'white',
@@ -82,10 +86,13 @@ var styles = StyleSheet.create({
   merchant: {
     marginBottom: 20,
     fontSize: 16,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: 'AppleSDGothicNeo-Semibold'
   },
   domain: {
-    color: 'grey'
+    color: 'grey',
+    fontSize: 16,
+    fontFamily: 'AppleSDGothicNeo-Light'
   },
   priceContainer: {
     flexDirection: 'column',
@@ -99,7 +106,8 @@ var styles = StyleSheet.create({
   },
   price: {
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: 'AppleSDGothicNeo-Semibold'
   },
   text: {
     fontSize: 20,

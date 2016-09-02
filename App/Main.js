@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F5FCFF',
   },
-  text: {
+  container: {
     color: 'black',
     backgroundColor: 'white',
     fontSize: 30,

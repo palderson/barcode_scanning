@@ -7,11 +7,13 @@ import {
   View,
   TouchableHighlight,
   Image,
-  ListView
+  ListView,
+  WebView
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
+import Webview from '../Webview';
 
 class Product extends Component {
   constructor(props) {
@@ -60,7 +62,6 @@ class Product extends Component {
   // Remove toolbar and toolbarTitle when not using camera
   render() {
     return (
-
       <View style={styles.mainContainer}>
         <View style={styles.toolbar}>
           <Text style={styles.toolbarTitle}>This is the title</Text>
@@ -76,7 +77,6 @@ class Product extends Component {
   }
 
   _renderHeader() {
-    var showMore = this.state.numberOfLines ? <Text style={{color: '#f00'}}>{'SHOW MORE \u25BC'}</Text> : null;
     return (
       <View style={styles.container}>
         <View style={styles.headingContainer}>
@@ -93,7 +93,9 @@ class Product extends Component {
 
   _renderRow(data) {
     return (
-      <View style={styles.storeCard}>
+      <TouchableHighlight
+          style={styles.storeCard}
+        >
         <View style={styles.storeCardContent}>
           <View style={styles.merchantDomain}>
             <Text style={styles.merchant}>{data.merchant.toUpperCase()}</Text>
@@ -110,7 +112,7 @@ class Product extends Component {
             </View>
           </View>
         </View>
-      </View>
+      </TouchableHighlight>
     );
   }
 

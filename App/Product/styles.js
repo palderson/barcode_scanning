@@ -40,7 +40,7 @@ var styles = StyleSheet.create({
     fontFamily: 'AppleSDGothicNeo-Light'
   },
   recommendedPriceBox: {
-    backgroundColor:'#81c04d',
+    backgroundColor:'white',
     paddingTop:50,
     paddingBottom:50,
     flexDirection:'column',
@@ -48,7 +48,7 @@ var styles = StyleSheet.create({
   },
   priceIntroText: {
     fontSize: 16,
-    color: '#f0f0f0',
+    color: 'grey',
     textAlign: 'center',
     marginBottom: 20,
     fontFamily: 'AppleSDGothicNeo-Light'
@@ -56,7 +56,6 @@ var styles = StyleSheet.create({
   recommendedPrice: {
     fontSize: 40,
     fontWeight: 'bold',
-    color: '#ffffff',
     textAlign: 'center',
     fontFamily: 'AppleSDGothicNeo-Semibold'
   },

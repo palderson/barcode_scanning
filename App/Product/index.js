@@ -1,6 +1,6 @@
 'use strict';
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   StyleSheet,
   Text,
@@ -21,8 +21,7 @@ class Product extends Component {
     this.state = {
       items: [],
       dataSource: new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2}),
-      loaded: false,
-      numberOfLines: 5
+      loaded: false
     }
   }
 
@@ -63,9 +62,9 @@ class Product extends Component {
   render() {
     return (
       <View style={styles.mainContainer}>
-        <View style={styles.toolbar}>
+        {/* <View style={styles.toolbar}>
           <Text style={styles.toolbarTitle}>This is the title</Text>
-        </View>
+        </View> */}
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this._renderRow.bind(this)}
@@ -82,6 +81,7 @@ class Product extends Component {
         <View style={styles.headingContainer}>
           <Text style={styles.heading}>{this.state.items.title}</Text>
         </View>
+
         <View style={styles.recommendedPriceBox}>
           <Text style={styles.priceIntroText}>PURCHASE IN STORE{"\n"}IF PRICED BELOW</Text>
           <Text style={styles.recommendedPrice}>$499</Text>
@@ -95,6 +95,7 @@ class Product extends Component {
     return (
       <TouchableHighlight
           style={styles.storeCard}
+          onPress={this._openPage.bind(this, data)}
         >
         <View style={styles.storeCardContent}>
           <View style={styles.merchantDomain}>
@@ -114,6 +115,16 @@ class Product extends Component {
         </View>
       </TouchableHighlight>
     );
+  }
+
+  _openPage(data){
+    this.props.navigator.push({
+      title: 'Web View',
+      component: Webview,
+      passProps: {
+        url: data.link
+      }
+    });
   }
 
   componentWillUnmount() {

@@ -8,12 +8,13 @@ import {
   TouchableHighlight,
   Image,
   ListView,
+  NavigatorIOS,
   WebView
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
-import Webview from '../Webview';
+import Web from '../Web';
 
 class Product extends Component {
   constructor(props) {
@@ -95,7 +96,7 @@ class Product extends Component {
     return (
       <TouchableHighlight
           style={styles.storeCard}
-          onPress={this._openPage.bind(this, data)}
+          onPress={() => { this._openPage(data) }}
         >
         <View style={styles.storeCardContent}>
           <View style={styles.merchantDomain}>
@@ -118,13 +119,15 @@ class Product extends Component {
   }
 
   _openPage(data){
+    var url = data.link;
     this.props.navigator.push({
-      title: 'Web View',
-      component: Webview,
+      title: 'Site',
+      component: Web,
       passProps: {
-        url: data.link
+        source: url
       }
     });
+    console.log(url);
   }
 
   componentWillUnmount() {

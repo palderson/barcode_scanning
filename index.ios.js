@@ -6,7 +6,7 @@
 
  'use strict';
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -24,12 +24,12 @@ class barcode_read extends Component {
     var Component = route.component;
     return (
       <View style={styles.container}>
-        <Component
-          route={route}
-          navigator={navigator}
-          topNavigator={navigator} />
+      <Component
+        route={route}
+        navigator={navigator}
+        topNavigator={navigator} />
       </View>
-      )
+    )
   }
 
   render() {
@@ -54,7 +54,6 @@ class barcode_read extends Component {
 const styles = StyleSheet.create({
   text: {
     color: 'black',
-    backgroundColor: 'white',
     fontSize: 30,
     margin: 80
   },

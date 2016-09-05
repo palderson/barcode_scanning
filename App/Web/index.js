@@ -4,24 +4,27 @@ import React, { Component, PropTypes } from 'react';
 import {
   StyleSheet,
   View,
-  WebView
+  WebView,
+  NavigatorIOS
 } from 'react-native';
+
+import Product from '../Product';
 
 class Web extends Component {
   render() {
      return (
        <WebView
-          source={{uri: this.props.url}}
-          style={{marginTop: 20}}
-        />
+        source={{uri: this.props.url}}
+        style={{marginTop: 20}}
+       />
      );
-  }
+   }
 };
 
 var styles = StyleSheet.create({
-  webView :{
+  webView: {
     flex: 1,
-    flexDirection: 'column'
+    marginTop: 20
   }
 });
 

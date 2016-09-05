@@ -1,6 +1,6 @@
 'use strict';
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -9,12 +9,12 @@ import {
   Image,
   ListView,
   NavigatorIOS,
-  WebView
+  Navigator
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
-import styles from './styles';
 import Web from '../Web';
+import styles from './styles';
 
 class Product extends Component {
   constructor(props) {
@@ -96,7 +96,7 @@ class Product extends Component {
     return (
       <TouchableHighlight
           style={styles.storeCard}
-          onPress={() => { this._openPage(data) }}
+          onPress={ () => this._openPage(data)}
         >
         <View style={styles.storeCardContent}>
           <View style={styles.merchantDomain}>

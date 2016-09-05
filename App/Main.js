@@ -33,9 +33,9 @@ class Main extends Component {
     return (
       <TabBarIOS>
         <Icon.TabBarItem
-          title="Camera"
+          title="Scan"
           selected={this.state.selectedTab === 'camera'}
-          iconName={'camera'}
+          iconName={'barcode'}
           iconSize={20}
           onPress={() => {
             if (this.state.selectedTab !== 'camera') {
@@ -74,7 +74,7 @@ class Main extends Component {
         style={styles.wrapper}
         tintColor='#DA552F'
         barTintColor='#FFFFFD'
-        titleTextColor='#DA552F'
+        titleTextColor='black'
         ref='cameraRef'
         initialRoute={{
           title: 'Scan Barcode',
@@ -90,7 +90,7 @@ class Main extends Component {
        style={styles.wrapper}
        tintColor='#D6573D'
        barTintColor='#FFFFFD'
-       titleTextColor='#D6573D'
+       titleTextColor='black'
        ref='productsRef'
        initialRoute={{
          title: 'My Products',

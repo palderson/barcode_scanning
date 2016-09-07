@@ -13,14 +13,16 @@ import styles from './styles';
 class ScannerComponent extends Component {
   render() {
     return (
-      <View style={styles.container}>
         <Camera
           ref="cam"
           style={styles.camera}
           onBarCodeRead={this.onBarCodeRead.bind(this)}
         >
+        <View style={styles.rectangleContainer}>
+          <View style={styles.rectangle}/>
+          <Text style={styles.text}>Position a barcode within{"\n"}the guide box</Text>
+        </View>
         </Camera>
-      </View>
     );
   }
 

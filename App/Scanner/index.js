@@ -30,7 +30,7 @@ class Scanner extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScannerComponent resultHandler={this.handleResult.bind(this)}/>
+          <ScannerComponent resultHandler={this.handleResult.bind(this)}/>
       </View>
     );
   }

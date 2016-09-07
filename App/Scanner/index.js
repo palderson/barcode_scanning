@@ -38,7 +38,14 @@ class Scanner extends Component {
   handleResult(result) {
       if (!this.state.scanned) {
         this.state.scanned = true
-        this.props.navigator.push({title: 'Results', component: Product, passProps: {data: result.data, returnHandler: this.reset.bind(this)}});
+        this.props.navigator.push({
+          title: 'Results',
+          component: Product,
+          passProps: {
+            data: result.data,
+            returnHandler: this.reset.bind(this)
+          }
+        });
       }
   }
 

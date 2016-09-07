@@ -6,10 +6,11 @@
 
  'use strict';
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
   AppRegistry,
-  TabBarIOS
+  TabBarIOS,
+  StyleSheet
 } from 'react-native';
 
 import ScanTab from './App/ScanTab';
@@ -25,10 +26,15 @@ class barcode_read extends Component {
   }
   render(){
     return (
-      <TabBarIOS>
-        <TabBarIOS.Item
+      <TabBarIOS
+        tintColor="white"
+        barTintColor="#7ec0ee"
+        >
+        <Icon.TabBarItemIOS
           selected={this.state.selectedTab === 'ScanTab'}
-          systemIcon='search'
+          title={""}
+          iconName={'barcode'}
+          iconSize={30}
           onPress={() => {
             this.setState(
               {selectedTab: 'ScanTab'}
@@ -36,10 +42,12 @@ class barcode_read extends Component {
           }}
         >
           <ScanTab />
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
+        </Icon.TabBarItemIOS>
+        <Icon.TabBarItemIOS
           selected={this.state.selectedTab === 'Products'}
-          systemIcon='history'
+          title={""}
+          iconName={'bars'}
+          iconSize={30}
           onPress={() => {
             this.setState(
               {selectedTab: 'Products'}
@@ -47,7 +55,7 @@ class barcode_read extends Component {
           }}
         >
           <Products />
-        </TabBarIOS.Item>
+        </Icon.TabBarItemIOS>
       </TabBarIOS>
     );
   }

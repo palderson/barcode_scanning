@@ -8,21 +8,21 @@ import {
 // Remove all toolbar references when using camera
 
 var styles = StyleSheet.create({
-  mainContainer:{
+  mainContainer: {
     flex:1
   },
-  content:{
+  content: {
     backgroundColor: '#f0f0f0',
     flex: 1,
     padding: 10
   },
-  toolbar:{
+  toolbar: {
     backgroundColor:'#81c04d',
     paddingTop:30,
     paddingBottom:10,
     flexDirection:'row'
   },
-  toolbarTitle:{
+  toolbarTitle: {
     color:'#fff',
     textAlign:'center',
     fontWeight:'bold',

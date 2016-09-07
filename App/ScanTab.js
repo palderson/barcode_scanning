@@ -20,9 +20,12 @@ export default class ScanTab extends Component {
     return (
       <NavigatorIOS
         style={styles.container}
+        barTintColor='#7ec0ee'
+        titleTextColor='white'
+        backButtonTitle=' '
         initialRoute={{
           title: 'Scan Barcode',
-          component: Scanner
+          component: Scanner,
         }} />
     );
   }

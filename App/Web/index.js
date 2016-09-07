@@ -1,31 +1,18 @@
-'use strict';
-
 import React, { Component, PropTypes } from 'react';
 import {
+  AppRegistry,
   StyleSheet,
-  View,
   WebView,
-  NavigatorIOS
+  Text,
+  View
 } from 'react-native';
 
-import Product from '../Product';
-
-class Web extends Component {
+export default class Web extends Component {
   render() {
      return (
        <WebView
-        source={{uri: this.props.url}}
-        style={{marginTop: 20}}
+         source={{uri: this.props.data}}
        />
      );
    }
 };
-
-var styles = StyleSheet.create({
-  webView: {
-    flex: 1,
-    marginTop: 20
-  }
-});
-
-module.exports = Web;

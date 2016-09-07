@@ -14,7 +14,7 @@ import {
   Navigator
 } from 'react-native';
 
-import Main from '../Main'
+import ScanTab from '../ScanTab'
 import ScannerComponent from './ScannerComponent';
 import Product from '../Product';
 import styles from './styles';

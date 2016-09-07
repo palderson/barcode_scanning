@@ -2,11 +2,11 @@
 
 import React, { Component } from 'react';
 import {
+  AppRegistry,
   StyleSheet,
   Text,
   View,
   TouchableHighlight,
-  Image,
   ListView,
   NavigatorIOS,
   Navigator
@@ -119,15 +119,14 @@ class Product extends Component {
   }
 
   _openPage(data){
-    var url = data.link;
     this.props.navigator.push({
       title: 'Site',
       component: Web,
       passProps: {
-        source: url
+        data: data.link
       }
     });
-    console.log(url);
+    console.log(data.link);
   }
 
   componentWillUnmount() {

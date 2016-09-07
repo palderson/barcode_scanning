@@ -9,62 +9,48 @@
 import React, { Component, PropTypes } from 'react';
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  Navigator
+  TabBarIOS
 } from 'react-native';
 
-import Main from './App/Main';
+import ScanTab from './App/ScanTab';
 import Products from './App/Products';
 import Product from './App/Product'; // Remove if on Device
 
-class barcode_read extends Component {
-  renderScene(route, navigator) {
-    var Component = route.component;
-    return (
-      <View style={styles.container}>
-      <Component
-        route={route}
-        navigator={navigator}
-        topNavigator={navigator} />
-      </View>
-    )
-  }
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-  render() {
+class barcode_read extends Component {
+  constructor(props){
+    super();
+    this.state = {selectedTab: 'ScanTab'};
+  }
+  render(){
     return (
-      <Navigator
-        style={styles.wrapper}
-        ref={(navigator) => { this.navigator = navigator; }}
-        renderScene={this.renderScene}
-        tintColor='#D6573D'
-        barTintColor='#FFFFFD'
-        titleTextColor='#D6573D'
-        navigationBarHidden={true}
-        initialRoute={{
-          title: '',
-          component: Product, // Main for device Product to style in sim
-        }}
-      />
+      <TabBarIOS>
+        <TabBarIOS.Item
+          selected={this.state.selectedTab === 'ScanTab'}
+          systemIcon='search'
+          onPress={() => {
+            this.setState(
+              {selectedTab: 'ScanTab'}
+            );
+          }}
+        >
+          <ScanTab />
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          selected={this.state.selectedTab === 'Products'}
+          systemIcon='history'
+          onPress={() => {
+            this.setState(
+              {selectedTab: 'Products'}
+            );
+          }}
+        >
+          <Products />
+        </TabBarIOS.Item>
+      </TabBarIOS>
     );
   }
-};
-
-const styles = StyleSheet.create({
-  text: {
-    color: 'black',
-    fontSize: 30,
-    margin: 80
-  },
-  wrapper: {
-    flex: 1
-  },
-  container: {
-    flex: 1
-  }
-});
+}
 
 AppRegistry.registerComponent('barcode_read', () => barcode_read);
-
-module.exports = 'barcode_read';

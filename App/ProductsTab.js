@@ -12,9 +12,9 @@ import {
   NavigatorIOS
 } from 'react-native';
 
-import Scanner from './Scanner';
+import Products from './Products';
 
-export default class ScanTab extends Component {
+export default class ProductsTab extends Component {
   render() {
     return (
       <NavigatorIOS
@@ -23,8 +23,8 @@ export default class ScanTab extends Component {
         titleTextColor='white'
         backButtonTitle=' '
         initialRoute={{
-          title: 'Scan Barcode',
-          component: Scanner,
+          title: 'My Products',
+          component: Products,
         }} />
     );
   }

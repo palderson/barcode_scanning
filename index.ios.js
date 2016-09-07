@@ -14,8 +14,7 @@ import {
 } from 'react-native';
 
 import ScanTab from './App/ScanTab';
-import Products from './App/Products';
-import Product from './App/Product'; // Remove if on Device
+import ProductsTab from './App/ProductsTab';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -44,17 +43,17 @@ class barcode_read extends Component {
           <ScanTab />
         </Icon.TabBarItemIOS>
         <Icon.TabBarItemIOS
-          selected={this.state.selectedTab === 'Products'}
+          selected={this.state.selectedTab === 'ProductsTab'}
           title={""}
           iconName={'bars'}
           iconSize={30}
           onPress={() => {
             this.setState(
-              {selectedTab: 'Products'}
+              {selectedTab: 'ProductsTab'}
             );
           }}
         >
-          <Products />
+          <ProductsTab />
         </Icon.TabBarItemIOS>
       </TabBarIOS>
     );

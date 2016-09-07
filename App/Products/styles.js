@@ -10,7 +10,6 @@ var styles = StyleSheet.create({
     flex: 1
   },
   text: {
-    color: 'black',
     backgroundColor: 'white',
     fontSize: 30,
     margin: 80

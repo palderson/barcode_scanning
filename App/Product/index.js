@@ -97,6 +97,7 @@ class Product extends Component {
       <TouchableHighlight
           style={styles.storeCard}
           onPress={ () => this._openPage(data)}
+          underlayColor={'transparent'}
         >
         <View style={styles.storeCardContent}>
           <View style={styles.merchantDomain}>

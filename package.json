@@ -9,6 +9,7 @@
     "react": "15.2.1",
     "react-native": "^0.31.0",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
+    "react-native-device-info": "^0.9.5",
     "react-native-vector-icons": "^2.1.0"
   }
 }

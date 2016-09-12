@@ -15,6 +15,7 @@ import {
 
 import ScanTab from './App/ScanTab';
 import ProductsTab from './App/ProductsTab';
+import DeviceInfo from 'react-native-device-info';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 

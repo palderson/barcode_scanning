@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import Scanner from './Scanner';
+import Product from './Product'; // Remove for device
 
 export default class ScanTab extends Component {
   render() {
@@ -24,7 +25,7 @@ export default class ScanTab extends Component {
         backButtonTitle=' '
         initialRoute={{
           title: 'Scan Barcode',
-          component: Scanner,
+          component: Product, // Scanner for device
         }} />
     );
   }
